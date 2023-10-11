@@ -34,3 +34,90 @@
     color: var(--primary);
     margin: 5rem 0;
   }
+
+  /*header*/
+   .header {
+      /*buena propiedad de css bg image para poner un fondo gradiente, no se como hacerlo en tailwind*/
+      /*en el caso de las imagenes en remix es relativa a la carpeta public y no a la de estilos*/
+      /*en tailwind es <div class="bg-gradient-to-r from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.7)] to-transparent" style="background-image: url(/img/ header.jpg);"></div>*/
+      background-image: linear-gradient(to right, rgba(0 0 0 / .8), rgba( 0 0 0 / .7)), url(/img/header.jpg);
+      padding: 6rem 0;
+      /*la siguiente propiedad hace que la imagen tome todo el ancho de pantalla y se adapte a diferentes tamaños de pantalla*/
+      /*en tailwind es bg-cover*/	
+      background-size: cover;
+      background-position: center center;
+   }
+    .header .logo{
+     width: 25rem;
+    }
+   .barra{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (min-width: 768px){
+      .barra{
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .header .navegacion{
+      display: flex;
+      gap: 2rem;
+      margin-top: 5rem;
+    }
+    @media (min-width: 768px){
+      .header .navegacion{
+        margin-top: 0;
+      }
+    }
+
+    .header .navegacion a{
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 1.4rem;
+      padding: 1.5rem;
+      transition-property: background-color;
+      transition-duration: .5s;
+    }
+    .header .navegacion a:hover,
+    .header .active{
+      background-color: var(--primary);
+    }
+  
+  /*footer*/
+  .footer {
+    background-color: var(--black);
+    padding: 5rem 0;
+    margin-top: 5rem;
+  }
+  @media (min-width: 768px){
+    .footer .contenido{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .footer .navegacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  @media (min-width: 768px){
+    .footer .navegacion{
+      flex-direction: row;
+    }
+  }
+  .footer .navegacion a,
+  .footer .copyright{
+    color: var(--white);
+    font-size: 2.8rem;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .footer .copyright{
+    text-align: center;
+    font-size: 2.2rem;
+  }

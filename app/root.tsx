@@ -1,10 +1,17 @@
 import { 
     Meta, //metadatos
     Links, //links de hojas de estilos
-    Outlet //renderiza el contenido de las rutas hijas
+    Outlet, //renderiza el contenido de las rutas hijas
+    Scripts, //tienen todas las optimizaciones de remix
+    LiveReload, //recarga la página cuando se hace un cambio
 } from "@remix-run/react";
-import styles from './styles/index.css';
+//se puede usar la virgulilla para importar todo lo que se muestra en app
+import styles from '~/styles/index.css';
+import Header from "~/components/header";
+import Footer from "~/components/footer";
 
+// la función de meta solo funciona dentro de las carpetas routes si se importa en otra archivo o carpeta que no este 
+// dentro de routes no funciona de igual manera funciona con los Links (meta y links)
 //exportar metadatos, se puede exportar un array de objetos
 export function meta() {
     return[
@@ -55,6 +62,11 @@ export default function App() {
 }
 
 //children porque renderiza todo lo que se muestra en pantalla
+//en ts se tiene que especificar el tipo de la función
+//se importa el header en root porque se mostrara en todas las rutas o paginas de la aplicación
+//los dos siguientes se importan antes del cierre del body
+//scripts mejora y optimiza la página en general
+//LiveReload recarga la página cuando se hace un cambio
 function Document({children} : {children: React.ReactNode}) {
     return (
         <html lang="es">
@@ -63,7 +75,12 @@ function Document({children} : {children: React.ReactNode}) {
                 <Links />
             </head>
             <body>
+                <Header />
                 {children}
+
+                <Footer />
+                <Scripts />
+                <LiveReload /> 
             </body>
         </html>
     );
