@@ -5,7 +5,7 @@ import { Link } from "@remix-run/react"
 import logoHeader from '../../public/img/logo.svg'
 import Navegacion from "./navegacion"
 
-function header() {
+function Header() {
 
   return (
     <header className="header">
@@ -22,4 +22,4 @@ function header() {
   )
 }
 
-export default header
+export default Header

@@ -3,7 +3,7 @@
 //en este caso usamos useLocation para resaltar el link de la ruta en la que estamos
 import { Link , useLocation } from "@remix-run/react"
 
-function navegacion() {
+function Navegacion() {
 
     const location = useLocation()
 
@@ -37,4 +37,4 @@ function navegacion() {
   )
 }
 
-export default navegacion
+export default Navegacion
